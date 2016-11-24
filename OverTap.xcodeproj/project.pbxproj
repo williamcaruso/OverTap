@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC60D1DE54005001A4095 /* AppDelegate.swift */; };
-		B65DC6101DE54005001A4095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC60F1DE54005001A4095 /* ViewController.swift */; };
 		B65DC6131DE54005001A4095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6111DE54005001A4095 /* Main.storyboard */; };
 		B65DC6151DE54005001A4095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6141DE54005001A4095 /* Assets.xcassets */; };
 		B65DC6181DE54005001A4095 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */; };
 		B65DC6231DE54005001A4095 /* OverTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC6221DE54005001A4095 /* OverTapTests.swift */; };
 		B65DC62E1DE54005001A4095 /* OverTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC62D1DE54005001A4095 /* OverTapUITests.swift */; };
+		B65DC63C1DE540DF001A4095 /* DrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63B1DE540DF001A4095 /* DrawRect.swift */; };
+		B65DC63E1DE5414F001A4095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63D1DE5414F001A4095 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,6 @@
 /* Begin PBXFileReference section */
 		B65DC60A1DE54005001A4095 /* OverTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OverTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65DC60D1DE54005001A4095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B65DC60F1DE54005001A4095 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B65DC6121DE54005001A4095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B65DC6141DE54005001A4095 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B65DC6171DE54005001A4095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +47,8 @@
 		B65DC6291DE54005001A4095 /* OverTapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverTapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65DC62D1DE54005001A4095 /* OverTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTapUITests.swift; sourceTree = "<group>"; };
 		B65DC62F1DE54005001A4095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B65DC63B1DE540DF001A4095 /* DrawRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawRect.swift; sourceTree = "<group>"; };
+		B65DC63D1DE5414F001A4095 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +100,12 @@
 			isa = PBXGroup;
 			children = (
 				B65DC60D1DE54005001A4095 /* AppDelegate.swift */,
-				B65DC60F1DE54005001A4095 /* ViewController.swift */,
 				B65DC6111DE54005001A4095 /* Main.storyboard */,
 				B65DC6141DE54005001A4095 /* Assets.xcassets */,
 				B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */,
 				B65DC6191DE54005001A4095 /* Info.plist */,
+				B65DC63B1DE540DF001A4095 /* DrawRect.swift */,
+				B65DC63D1DE5414F001A4095 /* ViewController.swift */,
 			);
 			path = OverTap;
 			sourceTree = "<group>";
@@ -259,7 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B65DC6101DE54005001A4095 /* ViewController.swift in Sources */,
+				B65DC63E1DE5414F001A4095 /* ViewController.swift in Sources */,
+				B65DC63C1DE540DF001A4095 /* DrawRect.swift in Sources */,
 				B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
