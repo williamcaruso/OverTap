@@ -90,7 +90,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
         if (view1.frame.intersects(view2.frame)) {
-            view1.backgroundColor = UIColor.blue
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
         }
     }
     
