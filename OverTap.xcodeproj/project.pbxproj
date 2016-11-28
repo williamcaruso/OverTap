@@ -13,7 +13,6 @@
 		B65DC6181DE54005001A4095 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */; };
 		B65DC6231DE54005001A4095 /* OverTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC6221DE54005001A4095 /* OverTapTests.swift */; };
 		B65DC62E1DE54005001A4095 /* OverTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC62D1DE54005001A4095 /* OverTapUITests.swift */; };
-		B65DC63C1DE540DF001A4095 /* DrawRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63B1DE540DF001A4095 /* DrawRect.swift */; };
 		B65DC63E1DE5414F001A4095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63D1DE5414F001A4095 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +46,6 @@
 		B65DC6291DE54005001A4095 /* OverTapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverTapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65DC62D1DE54005001A4095 /* OverTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTapUITests.swift; sourceTree = "<group>"; };
 		B65DC62F1DE54005001A4095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B65DC63B1DE540DF001A4095 /* DrawRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrawRect.swift; sourceTree = "<group>"; };
 		B65DC63D1DE5414F001A4095 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,7 +102,6 @@
 				B65DC6141DE54005001A4095 /* Assets.xcassets */,
 				B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */,
 				B65DC6191DE54005001A4095 /* Info.plist */,
-				B65DC63B1DE540DF001A4095 /* DrawRect.swift */,
 				B65DC63D1DE5414F001A4095 /* ViewController.swift */,
 			);
 			path = OverTap;
@@ -196,6 +193,7 @@
 				TargetAttributes = {
 					B65DC6091DE54005001A4095 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = E7J4C6QDWX;
 						ProvisioningStyle = Automatic;
 					};
 					B65DC61D1DE54005001A4095 = {
@@ -263,7 +261,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65DC63E1DE5414F001A4095 /* ViewController.swift in Sources */,
-				B65DC63C1DE540DF001A4095 /* DrawRect.swift in Sources */,
 				B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -416,7 +413,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E7J4C6QDWX;
 				INFOPLIST_FILE = OverTap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.OverTap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +427,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = E7J4C6QDWX;
 				INFOPLIST_FILE = OverTap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.OverTap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -509,6 +510,7 @@
 				B65DC6341DE54005001A4095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B65DC6351DE54005001A4095 /* Build configuration list for PBXNativeTarget "OverTapTests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +519,7 @@
 				B65DC6371DE54005001A4095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B65DC6381DE54005001A4095 /* Build configuration list for PBXNativeTarget "OverTapUITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +528,7 @@
 				B65DC63A1DE54005001A4095 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
