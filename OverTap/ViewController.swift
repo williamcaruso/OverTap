@@ -13,9 +13,36 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     
+    func handleTap(_ recognizer:UITapGestureRecognizer) {
+        if let view = recognizer.view {
+            switch view.backgroundColor! {
+            case UIColor.red:
+                view.backgroundColor = UIColor.orange
+            case UIColor.orange:
+                view.backgroundColor = UIColor.yellow
+            case UIColor.yellow:
+                view.backgroundColor = UIColor.green
+            case UIColor.green:
+                view.backgroundColor = UIColor.blue
+            case UIColor.blue:
+                view.backgroundColor = UIColor.purple
+            case UIColor.purple:
+                view.backgroundColor = UIColor.white
+            default:
+                view.backgroundColor = UIColor.red
+            }
+        }
+    }
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        
+        let recognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
+        recognizer.delegate = self
+        view1.addGestureRecognizer(recognizer)
     }
     
     override func didReceiveMemoryWarning() {
@@ -27,6 +54,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                            shouldRecognizeSimultaneouslyWith shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
         return true
     }
+    
     
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
@@ -79,5 +107,4 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             recognizer.rotation = 0
         }
     }
-    
-}
+    }
