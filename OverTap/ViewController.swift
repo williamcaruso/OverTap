@@ -8,6 +8,7 @@
 
 import UIKit
 import RSClipperWrapper
+import KCFloatingActionButton
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
@@ -21,13 +22,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let NUM_SHAPES = 6
     
+    @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     
-    func changeShape(subview: UIView) {
+    /**
+     Changes the shape in a view
+     
+     - parameter subview: The view to change the shape in.
+     - parameter newShape: The shape to draw in the view
+     
+     - return The coordinates of the shape.
+     */
+
+    func changeShape(subview: UIView, newShape: Int) {
         let oldShape = shapesInView[subview]
         let col = UIColor(cgColor: (oldShape?.fillColor!)!)
-        let newShape = (shapeIdInView[subview]! + 1) % NUM_SHAPES
         
         // remove old shape from subview
         oldShape?.removeFromSuperlayer()
@@ -241,14 +251,65 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                 
                 path.close()
                 shape.path = path.cgPath
+                headerLabel.isHidden = false
             }
             
         } else {
             // remove the old sublayer
+            headerLabel.isHidden = true
+
             if (layerToRemove.superlayer != nil) {
                 layerToRemove.removeFromSuperlayer()
             }
         }
+    }
+    
+    func showActionMenu(subview: UIView) {
+        let optionMenu = UIAlertController(title: nil, message: "Choose Shape", preferredStyle: .actionSheet)
+    
+        let triangleAction = UIAlertAction(title: "Triangle", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 0)
+        })
+        
+        let squareAction = UIAlertAction(title: "Square", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 1)
+        })
+    
+        let rectangleAction = UIAlertAction(title: "Rectangle", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 2)
+        })
+        
+        let pentagonAction = UIAlertAction(title: "Pentagon", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 3)
+        })
+        
+        let hexagonAction = UIAlertAction(title: "Hexagon", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 4)
+        })
+        
+        let octagonAction = UIAlertAction(title: "Octagon", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+            self.changeShape(subview: subview, newShape: 4)
+        })
+        
+        let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: {
+            (alert: UIAlertAction!) -> Void in
+        })
+
+        optionMenu.addAction(triangleAction)
+        optionMenu.addAction(squareAction)
+        optionMenu.addAction(rectangleAction)
+        optionMenu.addAction(pentagonAction)
+        optionMenu.addAction(hexagonAction)
+        optionMenu.addAction(octagonAction)
+        optionMenu.addAction(dismissAction)
+        
+        self.present(optionMenu, animated: true, completion: nil)
     }
 
     
@@ -256,7 +317,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
+        headerLabel.isHidden = true
         
         view1.alpha = 0.6
         view2.alpha = 0.6
@@ -271,7 +333,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
 
         drawShape(drawInView: view1, shape: 1, color: UIColor.red)
         drawShape(drawInView: view2, shape: 1, color: UIColor.blue)
-//
+        
+
+        let fab = KCFloatingActionButton()
+        fab.addItem(title: "Hello, World!")
+        self.view.addSubview(fab)
+        
 //        let testFrame : CGRect = CGRect(x:0,y:200,width:200,height:200)
 //        var view3 : UIView = UIView(frame: testFrame)
 //        view3.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
@@ -294,11 +361,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
-            if touch.force > 0.5 {
+            if touch.force == touch.maximumPossibleForce {
                 let loc:CGPoint = touch.location(in: self.view)
                 for view in view.subviews {
                     if view.frame.contains(loc) {
-                        changeShape(subview: view)
+                        showActionMenu(subview: view)
                     }
                 }
                 

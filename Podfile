@@ -7,7 +7,8 @@ target 'OverTap' do
 
   # Pods for OverTap
   pod 'RSClipperWrapper', :git => 'https://github.com/rusty1s/RSClipperWrapper.git'
-
+  pod 'KCFloatingActionButton', '~> 2.1.0'
+  
 #  target 'OverTapTests' do
 #    inherit! :search_paths
     # Pods for testing

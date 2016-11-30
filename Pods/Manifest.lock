@@ -1,7 +1,9 @@
 PODS:
+  - KCFloatingActionButton (2.1.1)
   - RSClipperWrapper (1.3)
 
 DEPENDENCIES:
+  - KCFloatingActionButton (~> 2.1.0)
   - RSClipperWrapper (from `https://github.com/rusty1s/RSClipperWrapper.git`)
 
 EXTERNAL SOURCES:
@@ -14,8 +16,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/rusty1s/RSClipperWrapper.git
 
 SPEC CHECKSUMS:
+  KCFloatingActionButton: 084cfe9d16b741be33393c99757f5967296c7645
   RSClipperWrapper: e8105534f0db6b1e03d8b92a100ea438a67a6679
 
-PODFILE CHECKSUM: 3266ca05244875c7e35ffc3cb43bdfd86d6d65f9
+PODFILE CHECKSUM: 3ab243a147d3658e8ebe9817c446376964ec117f
 
 COCOAPODS: 1.1.1

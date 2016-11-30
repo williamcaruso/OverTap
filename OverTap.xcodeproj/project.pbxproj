@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0DFF1299222CC7BCFF310D30 /* Pods_OverTap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71204BA929441C6D0D2E0B71 /* Pods_OverTap.framework */; };
+		B6295E631DEF8951004039D6 /* shapes.png in Resources */ = {isa = PBXBuildFile; fileRef = B6295E621DEF8951004039D6 /* shapes.png */; };
 		B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC60D1DE54005001A4095 /* AppDelegate.swift */; };
 		B65DC6131DE54005001A4095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6111DE54005001A4095 /* Main.storyboard */; };
 		B65DC6151DE54005001A4095 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6141DE54005001A4095 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		71204BA929441C6D0D2E0B71 /* Pods_OverTap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OverTap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		905EA417B3C31B9000FEF363 /* Pods-OverTap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.release.xcconfig"; sourceTree = "<group>"; };
+		B6295E621DEF8951004039D6 /* shapes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shapes.png; sourceTree = "<group>"; };
 		B65DC60A1DE54005001A4095 /* OverTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OverTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65DC60D1DE54005001A4095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B65DC6121DE54005001A4095 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				B65DC6191DE54005001A4095 /* Info.plist */,
 				B65DC63D1DE5414F001A4095 /* ViewController.swift */,
 				B66485C21DEF2201009601B1 /* back.jpg */,
+				B6295E621DEF8951004039D6 /* shapes.png */,
 			);
 			path = OverTap;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6295E631DEF8951004039D6 /* shapes.png in Resources */,
 				B66485C31DEF2201009601B1 /* back.jpg in Resources */,
 				B65DC6181DE54005001A4095 /* LaunchScreen.storyboard in Resources */,
 				B65DC6151DE54005001A4095 /* Assets.xcassets in Resources */,
