@@ -15,6 +15,7 @@
 		B65DC6231DE54005001A4095 /* OverTapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC6221DE54005001A4095 /* OverTapTests.swift */; };
 		B65DC62E1DE54005001A4095 /* OverTapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC62D1DE54005001A4095 /* OverTapUITests.swift */; };
 		B65DC63E1DE5414F001A4095 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63D1DE5414F001A4095 /* ViewController.swift */; };
+		B66485C31DEF2201009601B1 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B66485C21DEF2201009601B1 /* back.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		B65DC62D1DE54005001A4095 /* OverTapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverTapUITests.swift; sourceTree = "<group>"; };
 		B65DC62F1DE54005001A4095 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B65DC63D1DE5414F001A4095 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B66485C21DEF2201009601B1 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
 		DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -127,6 +129,7 @@
 				B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */,
 				B65DC6191DE54005001A4095 /* Info.plist */,
 				B65DC63D1DE5414F001A4095 /* ViewController.swift */,
+				B66485C21DEF2201009601B1 /* back.jpg */,
 			);
 			path = OverTap;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B66485C31DEF2201009601B1 /* back.jpg in Resources */,
 				B65DC6181DE54005001A4095 /* LaunchScreen.storyboard in Resources */,
 				B65DC6151DE54005001A4095 /* Assets.xcassets in Resources */,
 				B65DC6131DE54005001A4095 /* Main.storyboard in Resources */,

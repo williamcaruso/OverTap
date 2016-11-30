@@ -11,58 +11,322 @@ import RSClipperWrapper
 
 class ViewController: UIViewController, UIGestureRecognizerDelegate {
     
-    var layerToRemove:CAShapeLayer = CAShapeLayer()
+    var layerToRemove = CAShapeLayer()
+    var viewToUpdate = UIView()
     
+    var pointsInView = [UIView: Array<CGPoint>]()
+    var shapesInView = [UIView: CAShapeLayer]()
+    var shapeIdInView = [UIView: Int]()
+    var rotationsInView = [UIView: CGFloat]()
+    
+    let NUM_SHAPES = 6
     
     @IBOutlet weak var view1: UIView!
     @IBOutlet weak var view2: UIView!
     
-    func handleTap(_ recognizer:UITapGestureRecognizer) {
-        if let view = recognizer.view {
-            switch view.backgroundColor! {
-            case UIColor.red:
-                view.backgroundColor = UIColor.orange
-            case UIColor.orange:
-                view.backgroundColor = UIColor.yellow
-            case UIColor.yellow:
-                view.backgroundColor = UIColor.green
-            case UIColor.green:
-                view.backgroundColor = UIColor.blue
-            case UIColor.blue:
-                view.backgroundColor = UIColor.purple
-            default:
-                view.backgroundColor = UIColor.red
+    func changeShape(subview: UIView) {
+        let oldShape = shapesInView[subview]
+        let col = UIColor(cgColor: (oldShape?.fillColor!)!)
+        let newShape = (shapeIdInView[subview]! + 1) % NUM_SHAPES
+        
+        // remove old shape from subview
+        oldShape?.removeFromSuperlayer()
+        drawShape(drawInView: subview, shape: newShape, color: col)
+    }
+    
+    /**
+     Caclulates points of the shape in the subview
+     
+     - parameter subview: The view thta the shape is in.
+     
+     - return The coordinates of the shape.
+     */
+    func getShapePoints( subview: UIView ) -> Array<CGPoint> {
+        
+        var points:Array<CGPoint> = []
+        let o = CGPoint(x: 0, y: 0)
+        let height = subview.frame.height
+        let width = subview.frame.width
+
+        
+        switch shapeIdInView[subview]! {
+        case 0:     //Triangle
+            points = [CGPoint(x: o.x,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y + height)]
+        case 1:     // Square
+            points = [CGPoint(x: o.x,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y + height),
+                      CGPoint(x: o.x ,y: o.y + height)]
+        case 2:     // Rectangle
+            points = [CGPoint(x: o.x,y: o.y),
+                      CGPoint(x: o.x + width / 2.0,y: o.y),
+                      CGPoint(x: o.x + width / 2.0,y: o.y + height),
+                      CGPoint(x: o.x ,y: o.y + height)]
+        case 3:     // Pentagon
+            points = [CGPoint(x: o.x + width / 2.0,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y + 2 * height / 5.0),
+                      CGPoint(x: o.x + 4 * width / 5,y: o.y + height),
+                      CGPoint(x: o.x + width / 5.0,y: o.y + height),
+                      CGPoint(x: o.x,y: o.y + 2.0 * height / 5.0)]
+        case 4:     // Hexagon
+            points = [CGPoint(x: o.x + width / 4.0,y: o.y),
+                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y + height / 2.0),
+                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + height),
+                      CGPoint(x: o.x + width / 4.0,y: o.y + height),
+                      CGPoint(x: o.x,y: o.y + height / 2.0)]
+        case 5:     // Octagon
+            points = [CGPoint(x: o.x +  width / 3.0,y: o.y),
+                      CGPoint(x: o.x + 2 * width / 3.0,y: o.y),
+                      CGPoint(x: o.x + width,y: o.y + height / 3.0),
+                      CGPoint(x: o.x + width,y: o.y + 2 * height / 3.0),
+                      CGPoint(x: o.x + 2 * width / 3.0,y: o.y + height),
+                      CGPoint(x: o.x + width / 3.0,y: o.y + height),
+                      CGPoint(x: o.x,y: o.y + 2 * height / 3.0),
+                      CGPoint(x: o.x,y: o.y + height / 3.0)]
+        default:
+            points = []
+        }
+        
+        return points
+
+    }
+    
+    
+    
+    /**
+     Draws a shape inside of a view and adds a sublayer
+     
+     - parameter drawInView: The view to draw in.
+     - parameter shape: The shape to draw.
+    */
+    func drawShape( drawInView: UIView, shape: Int, color: UIColor) {
+        
+        shapeIdInView[drawInView] = shape
+        
+        var points:Array<CGPoint> = getShapePoints(subview: drawInView)
+        
+        let shape = CAShapeLayer()
+        drawInView.layer.addSublayer(shape)
+        shape.opacity = 1
+        shape.lineWidth = 2
+        shape.lineJoin = kCALineJoinMiter
+        shape.strokeColor = UIColor.black.cgColor
+        shape.fillColor = color.cgColor
+
+        let firstPoint = points[0]
+        let path = UIBezierPath()
+        path.move(to: firstPoint)
+        
+        var polygonIterator = points.makeIterator()
+        while let point = polygonIterator.next() {
+            path.addLine(to: point)
+        }
+        
+        path.close()
+        shape.path = path.cgPath
+        
+        pointsInView[drawInView] = points
+        shapesInView[drawInView] = shape
+
+    }
+    
+    /**
+     Rotates a point by a certain amount of radians around an origin
+     
+     - parameter target: The point to rotate.
+     - parameter aroundOrigin: The origin to rotate about.
+     - parameter byRadians: The angle of rotation (radians).
+     
+     - return The transformed point.
+     */
+    func rotatePoint(target: CGPoint, aroundOrigin origin: CGPoint, byRadians: CGFloat) -> CGPoint {
+        let dx = target.x - origin.x
+        let dy = target.y - origin.y
+        let radius = sqrt(dx * dx + dy * dy)
+        let azimuth = atan2(dy, dx) // in radians
+        let newAzimuth = azimuth + byRadians
+        let x = origin.x + radius * cos(newAzimuth)
+        let y = origin.y + radius * sin(newAzimuth)
+        return CGPoint(x: x, y: y)
+    }
+    
+    /**
+     Transforms a subviews points to the coordinate frame of the superview
+     
+     - parameter subview: The view whose points to transform.
+
+     - return The transformed points.
+     */
+    func transformPointsToSuperview( subview: UIView ) -> Array<CGPoint> {
+        
+        let points = pointsInView[subview]!
+        var transPoints = Array<CGPoint>()
+        let trans = subview.frame.origin
+        var p = CGPoint()
+        var radians = CGFloat()
+        let refPoint = CGPoint(x: trans.x + (subview.frame.width / 2.0),y: trans.y + (subview.frame.height / 2.0))
+        
+        for point in points {
+            // check if view has been rotated
+            p = CGPoint(x: point.x + trans.x, y: point.y + trans.y)
+            radians = CGFloat(atan2f(Float(subview.transform.b), Float(subview.transform.a)))
+            transPoints.append(rotatePoint(target: p, aroundOrigin: refPoint, byRadians: radians))
+        }
+        
+        return transPoints
+    }
+    
+    /**
+     Blends two UIColors together
+     
+     - parameter subview: The view whose points to transform.
+     
+     - return The transformed points.
+     */
+    func blendColor(color1: UIColor, withColor color2: UIColor) -> UIColor {
+        var r1:CGFloat = 0, g1:CGFloat = 0, b1:CGFloat = 0, a1:CGFloat = 0
+        var r2:CGFloat = 0, g2:CGFloat = 0, b2:CGFloat = 0, a2:CGFloat = 0
+        
+        color1.getRed(&r1, green: &g1, blue: &b1, alpha: &a1)
+        color2.getRed(&r2, green: &g2, blue: &b2, alpha: &a2)
+        
+        return UIColor(red: max(r1, r2), green: max(g1, g2), blue: max(b1, b2), alpha: max(a1, a2))
+    }
+
+    
+    /**
+     Draw the intersection of the polgyons
+     */
+    func drawIntersection() {
+        
+        if (view1.frame.intersects(view2.frame)) {
+            
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+            
+            // get transform points
+            let points1 = transformPointsToSuperview(subview: view1)
+            let points2 = transformPointsToSuperview(subview: view2)
+            
+            let intersection = Clipper.intersectPolygons([points2], withPolygons: [points1])
+            
+            
+            // remove the old sublayer
+            layerToRemove.removeFromSuperlayer()
+            
+            // draw the intersection
+            let shape = CAShapeLayer()
+            view.layer.addSublayer(shape)
+            layerToRemove = shape
+            shape.opacity = 0.5
+            shape.lineWidth = 2
+            shape.lineJoin = kCALineJoinMiter
+            shape.strokeColor = UIColor.white.cgColor
+            shape.fillColor = blendColor(color1: UIColor(cgColor: (shapesInView[view1]?.fillColor)!), withColor: UIColor(cgColor: (shapesInView[view2]?.fillColor)!)).cgColor
+            
+            var intersectionIterator = intersection.makeIterator()
+            while let polygon = intersectionIterator.next() {
+                
+                let firstPoint = polygon[0]
+                let path = UIBezierPath()
+                path.move(to: CGPoint(x: firstPoint.x,y: firstPoint.y))
+                
+                var polygonIterator = polygon.makeIterator()
+                while let point = polygonIterator.next() {
+                    path.addLine(to: CGPoint(x: point.x,y: point.y))
+                }
+                
+                path.close()
+                shape.path = path.cgPath
+            }
+            
+        } else {
+            // remove the old sublayer
+            if (layerToRemove.superlayer != nil) {
+                layerToRemove.removeFromSuperlayer()
             }
         }
     }
-    
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
+        
+        view1.alpha = 0.6
+        view2.alpha = 0.6
         
         let recognizer1 = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
         recognizer1.delegate = self
         view1.addGestureRecognizer(recognizer1)
-        
+
         let recognizer2 = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
         recognizer2.delegate = self
         view2.addGestureRecognizer(recognizer2)
 
+        drawShape(drawInView: view1, shape: 1, color: UIColor.red)
+        drawShape(drawInView: view2, shape: 1, color: UIColor.blue)
+//
+//        let testFrame : CGRect = CGRect(x:0,y:200,width:200,height:200)
+//        var view3 : UIView = UIView(frame: testFrame)
+//        view3.backgroundColor = UIColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1.0)
+//        self.view.addSubview(view3)
+//        
+//        drawShape(drawInView: view3, shape: 2)
+//        let recognizer3 = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
+//        recognizer3.delegate = self
+//        view3.addGestureRecognizer(recognizer3)
+//        let recognizer31 = UIPanGestureRecognizer(target: self, action:#selector(handlePan(recognizer:)))
+//        recognizer31.delegate = self
+//        view3.addGestureRecognizer(recognizer31)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func gestureRecognizer(_: UIGestureRecognizer,
                            shouldRecognizeSimultaneouslyWith shouldRecognizeSimultaneouslyWithGestureRecognizer:UIGestureRecognizer) -> Bool {
         return true
     }
     
-    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for touch: AnyObject in touches {
+            if touch.force > 0.5 {
+                let loc:CGPoint = touch.location(in: self.view)
+                for view in view.subviews {
+                    if view.frame.contains(loc) {
+                        changeShape(subview: view)
+                    }
+                }
+                
+            }
+        }
+    }
+
+    func handleTap(_ recognizer:UITapGestureRecognizer) {
+        if let view = recognizer.view {
+            
+            let shape = shapesInView[view]!
+            
+            switch shape.fillColor! {
+            case UIColor.red.cgColor:
+                shape.fillColor = UIColor.orange.cgColor
+            case UIColor.orange.cgColor:
+                shape.fillColor = UIColor.green.cgColor
+            case UIColor.green.cgColor:
+                shape.fillColor = UIColor.blue.cgColor
+            case UIColor.blue.cgColor:
+                shape.fillColor = UIColor.purple.cgColor
+            default:
+                shape.fillColor = UIColor.red.cgColor
+            }
+        }
+        drawIntersection()
+    }
+
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self.view)
         if let view = recognizer.view {
@@ -75,7 +339,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             let velocity = recognizer.velocity(in: self.view)
             let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
             let slideMultiplier = magnitude / 200
-            print("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
             
             let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
             var finalPoint = CGPoint(x:recognizer.view!.center.x + (velocity.x * slideFactor),
@@ -89,31 +352,16 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
                            animations: {recognizer.view!.center = finalPoint },
                            completion: nil)
         }
-        
-        if (view1.frame.intersects(view2.frame)) {
-            drawIntersection()
-        } else {
-            // remove the old sublayer
-            if (layerToRemove.superlayer != nil) {
-                layerToRemove.removeFromSuperlayer()
-            }
-        }
+        drawIntersection()
     }
     
     @IBAction func handlePinch(recognizer : UIPinchGestureRecognizer) {
         if let view = recognizer.view {
             view.transform = view.transform.scaledBy(x: recognizer.scale, y: recognizer.scale)
             recognizer.scale = 1
+            pointsInView[view] = getShapePoints(subview: view)
         }
-        
-        if (view1.frame.intersects(view2.frame)) {
-            drawIntersection()
-        } else {
-            // remove the old sublayer
-            if (layerToRemove.superlayer != nil) {
-                layerToRemove.removeFromSuperlayer()
-            }
-        }
+        drawIntersection()
     }
     
     @IBAction func handleRotate(recognizer : UIRotationGestureRecognizer) {
@@ -121,72 +369,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
             view.transform = view.transform.rotated(by: recognizer.rotation)
             recognizer.rotation = 0
         }
-        
-        if (view1.frame.intersects(view2.frame)) {
-            drawIntersection()
-        } else {
-            // remove the old sublayer
-            if (layerToRemove.superlayer != nil) {
-                layerToRemove.removeFromSuperlayer()
-            }
-        }
+        drawIntersection()
     }
     
-    func drawIntersection() {
-        let generator = UIImpactFeedbackGenerator(style: .heavy)
-        generator.impactOccurred()
-        
-        // determine polygon clip
-        let o1 = view1.frame.origin
-        let height1 = view1.frame.height
-        let width1 = view1.frame.width
-        
-        let o2 = view2.frame.origin
-        let height2 = view2.frame.height
-        let width2 = view2.frame.width
-        
-        let points1:Array<CGPoint> = [CGPoint(x: o1.x,y: o1.y),
-                                      CGPoint(x: o1.x + width1,y: o1.y),
-                                      CGPoint(x: o1.x + width1,y: o1.y + height1),
-                                      CGPoint(x: o1.x ,y: o1.y + height1)]
-        let points2:Array<CGPoint> = [CGPoint(x: o2.x,y: o2.y),
-                                      CGPoint(x: o2.x + width2,y: o2.y),
-                                      CGPoint(x: o2.x + width2,y: o2.y + height2),
-                                      CGPoint(x: o2.x ,y: o2.y + height2)]
-        
-        let intersection = Clipper.intersectPolygons([points2], withPolygons: [points1])
-        
-        print("Intersection \(intersection)")
-        
-        // remove the old sublayer
-        layerToRemove.removeFromSuperlayer()
-        
-        // draw the intersection
-        let shape = CAShapeLayer()
-        view.layer.addSublayer(shape)
-        layerToRemove = shape
-        shape.opacity = 0.5
-        shape.lineWidth = 2
-        shape.lineJoin = kCALineJoinMiter
-        shape.strokeColor = UIColor(hue: 0.786, saturation: 0.79, brightness: 0.53, alpha: 1.0).cgColor
-        shape.fillColor = UIColor(hue: 0.786, saturation: 0.15, brightness: 0.89, alpha: 1.0).cgColor
-        
-        var intersectionIterator = intersection.makeIterator()
-        while let polygon = intersectionIterator.next() {
-            print("NUM POINTS \(polygon.count)")
-            
-            let firstPoint = polygon[0]
-            let path = UIBezierPath()
-            path.move(to: CGPoint(x: firstPoint.x,y: firstPoint.y))
-            
-            var polygonIterator = polygon.makeIterator()
-            while let point = polygonIterator.next() {
-                path.addLine(to: CGPoint(x: point.x,y: point.y))
-            }
-            
-            path.close()
-            shape.path = path.cgPath
-        }
-    }
-
 }
