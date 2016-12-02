@@ -48,7 +48,8 @@ class WelcomeViewController: UIViewController, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+                
+        // set up tap gesture recognizer
         let recognizer = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
         recognizer.delegate = self
         tutorialView.addGestureRecognizer(recognizer)
@@ -184,6 +185,9 @@ class WelcomeViewController: UIViewController, UIGestureRecognizerDelegate {
 
     // MARK: - Methods
     
+    /**
+     Moves the tutorial forward
+     */
     func loadTutorial() {
         if flag1 && flag2 && flag3 && flag4 {
             // last step

@@ -37,14 +37,16 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var view2: UIView!
     @IBOutlet weak var view3: UIView!
     
-    
+    @IBOutlet var view1RotationGestureRecognizer: UIRotationGestureRecognizer!
+    @IBOutlet var view2RotationGestureRecognizer: UIRotationGestureRecognizer!
+    @IBOutlet var view3RotationGestureRecognizer: UIRotationGestureRecognizer!
+
     // MARK: - View Controllers
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
         headerLabel.isHidden = true
         
         view1.backgroundColor = UIColor.clear
@@ -57,6 +59,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         
         VIEW_IDS = [view1: "view1", view2: "view2", view3: "view3"]
         
+        // setup tap gesture recognizers
         let recognizer1 = UITapGestureRecognizer(target: self, action:#selector(handleTap(_:)))
         recognizer1.delegate = self
         view1.addGestureRecognizer(recognizer1)
@@ -69,12 +72,14 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         recognizer3.delegate = self
         view3.addGestureRecognizer(recognizer3)
         
+        // draw a square in each view
         drawShape(drawInView: view1, shapeId: 1, color: redColor)
         drawShape(drawInView: view2, shapeId: 1, color: blueColor)
         drawShape(drawInView: view3, shapeId: 1, color: greenColor)
         
         view3.isHidden = true
         
+        // add the floating action button
         let fab = KCFloatingActionButton()
 
         fab.addItem("Credits", icon: UIImage(named: "credits.png")!, handler: { item in
@@ -276,7 +281,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let shape = CAShapeLayer()
         drawInView.layer.addSublayer(shape)
-        shape.opacity = 1
+        shape.opacity = 0.8
         shape.lineWidth = 2
         shape.lineJoin = kCALineJoinMiter
         shape.strokeColor = UIColor.black.cgColor
@@ -310,11 +315,16 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
     func rotatePoint(target: CGPoint, origin: CGPoint, byRadians: CGFloat) -> CGPoint {
         let dx = origin.x - target.x
         let dy = origin.y - target.y
-        let radius = sqrt(dx * dx + dy * dy)
+        
+        let a = abs(dx * sin(byRadians))
+        let b = abs(dx * cos(byRadians))
+        
+        let radius = abs(sqrt(dx * dx + dy * dy) / (a + b) * dx)
+        
         let alpha = atan2(dy, dx) // in radians
         let newAlpha = alpha + byRadians
-        let x = origin.x - radius * cos(newAlpha)
-        let y = origin.y - radius * sin(newAlpha)
+        let x = origin.x + radius * cos(newAlpha)
+        let y = origin.y + radius * sin(newAlpha)
         
         return CGPoint(x: x, y: y)
     }
@@ -345,10 +355,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
                 transPoints.append(transPoint)
             }
         }
-        
-//        print("Points in View: \(points)")
-//        print("Transformed Point: \(transPoints)")
-        
+                
         return transPoints
     }
     
@@ -417,11 +424,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         let points1 = transformPointsToSuperview(subview: viewA)
         let points2 = transformPointsToSuperview(subview: viewB)
         
-//        print("Points 1 with scale \(viewA.transform.a) and rotation \(viewA.transform.b): \(points1)")
-        
         let intersection = Clipper.intersectPolygons([points2], withPolygons: [points1])
-        
-//        print("Intersection \(hash): \(intersection)")
         
         // draw the intersection
         let shape = CAShapeLayer()

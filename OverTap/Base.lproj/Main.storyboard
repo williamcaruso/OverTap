@@ -196,8 +196,11 @@
                     <connections>
                         <outlet property="headerLabel" destination="7a2-hs-P7J" id="yW5-Nm-xay"/>
                         <outlet property="view1" destination="ooK-by-ZM8" id="uHV-KW-sRS"/>
+                        <outlet property="view1RotationGestureRecognizer" destination="S59-1K-Qpx" id="tNM-cM-xrU"/>
                         <outlet property="view2" destination="9yp-hq-BXm" id="Yxo-Us-3q7"/>
+                        <outlet property="view2RotationGestureRecognizer" destination="iRH-2f-fd3" id="hWv-vT-3zR"/>
                         <outlet property="view3" destination="Ycn-59-rra" id="gKC-IA-VgZ"/>
+                        <outlet property="view3RotationGestureRecognizer" destination="wCz-lW-BPj" id="QYg-RC-dpJ"/>
                         <segue destination="6wK-Oc-Nd2" kind="modal" identifier="Credits" id="Jww-le-NeR"/>
                     </connections>
                 </viewController>
