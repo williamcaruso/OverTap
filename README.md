@@ -32,11 +32,11 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 
 #### Color Change and Two Rectangles Intersecting
 
-[Demo 1](http://i.imgur.com/NXvUaxq.gifv)
+![Demo 1](/demos/demo1.gif)
 
 #### Resizing Rectangles
 
-![Demo2](http://github.com/williamcaruso/OverTap/tree/master/demos/demo2.gif)
+[Demo2](/demos/demo2.gif)
 
 #### Adding a Third Rectangle
 
