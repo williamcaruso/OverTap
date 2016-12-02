@@ -32,7 +32,7 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 
 #### Color Change and Two Rectangles Intersecting
 
-![Demo1](http://imgur.com/NXvUaxq)
+[Demo 1](http://i.imgur.com/NXvUaxq.gifv)
 
 #### Resizing Rectangles
 
