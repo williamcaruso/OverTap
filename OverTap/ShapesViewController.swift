@@ -70,11 +70,11 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let fab = KCFloatingActionButton()
 
-        fab.addItem(title: "Credits", handler: { item in
+        fab.addItem("Credits", icon: UIImage(named: "credits.png")!, handler: { item in
             self.performSegue(withIdentifier: "Credits", sender: nil)
             fab.close()
         })
-        fab.addItem(title: "Remove Third Shape", handler: { item in
+        fab.addItem("Remove Third Shape", icon: UIImage(named: "delete.jpg")!, handler: { item in
             self.view3.isHidden = true
             self.findIntersections()
             fab.close()

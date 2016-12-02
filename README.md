@@ -7,7 +7,7 @@ OverTap is an app with two rectangles. See what happens when they overlap!
 
 OverTap was written as a coding challenge for Apple's Siri Advanced Development Team. The app was written in Swift 3.0.
 
-## Tutorial
+## App Walkthrough
 
 ### Welcome Screen
 
@@ -29,6 +29,22 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 * The clipping (intersection of the shape) is drawn in a blend of the intersecting shapes colors
 * The 'Intersection' label appears on the top
 * Haptic feedback if provided to the user
+
+#### Color Change and Two Rectangles Intersecting
+
+![alt text](https://github.com/williamcaruso/OverTap/tree/master/demos/demo1.gif)
+
+#### Resizing Rectangles
+
+![alt text](https://github.com/williamcaruso/OverTap/tree/master/demos/demo2.gif)
+
+#### Adding a Third Rectangle
+
+![alt text](https://github.com/williamcaruso/OverTap/tree/master/demos/demo3.gif)
+
+#### Changing Shapes
+
+![alt text](https://github.com/williamcaruso/OverTap/tree/master/demos/demo4.gif)
 
 ### Credits
 
