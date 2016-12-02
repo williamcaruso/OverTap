@@ -36,15 +36,15 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 
 #### Resizing Rectangles
 
-[Demo2](/demos/demo2.gif)
+![Demo2](/demos/demo2.gif)
 
 #### Adding a Third Rectangle
 
-![Demo3](http://github.com/williamcaruso/OverTap/tree/master/demos/demo3.gif)
+![Demo3](/demos/demo3.gif)
 
 #### Changing Shapes
 
-![Demo4](http://github.com/williamcaruso/OverTap/tree/master/demos/demo4.gif)
+![Demo4](/demos/demo4.gif)
 
 ### Credits
 
