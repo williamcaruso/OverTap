@@ -21,6 +21,8 @@
 		B68865471DF12E3700904CC9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68865461DF12E3700904CC9 /* WelcomeViewController.swift */; };
 		B68865491DF1374600904CC9 /* delete.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B68865481DF1374600904CC9 /* delete.jpg */; };
 		B688654B1DF1378F00904CC9 /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = B688654A1DF1378F00904CC9 /* credits.png */; };
+		B68865521DF1BE2800904CC9 /* intro1.png in Resources */ = {isa = PBXBuildFile; fileRef = B68865501DF1BE2800904CC9 /* intro1.png */; };
+		B68865531DF1BE2800904CC9 /* intro2.png in Resources */ = {isa = PBXBuildFile; fileRef = B68865511DF1BE2800904CC9 /* intro2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		B68865461DF12E3700904CC9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		B68865481DF1374600904CC9 /* delete.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = delete.jpg; sourceTree = "<group>"; };
 		B688654A1DF1378F00904CC9 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
+		B68865501DF1BE2800904CC9 /* intro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro1.png; sourceTree = "<group>"; };
+		B68865511DF1BE2800904CC9 /* intro2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro2.png; sourceTree = "<group>"; };
 		DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,13 +142,10 @@
 				B65DC6141DE54005001A4095 /* Assets.xcassets */,
 				B65DC6161DE54005001A4095 /* LaunchScreen.storyboard */,
 				B65DC6191DE54005001A4095 /* Info.plist */,
-				B66485C21DEF2201009601B1 /* back.jpg */,
-				B6295E621DEF8951004039D6 /* shapes.png */,
-				B68865481DF1374600904CC9 /* delete.jpg */,
-				B688654A1DF1378F00904CC9 /* credits.png */,
 				B65DC63D1DE5414F001A4095 /* ShapesViewController.swift */,
 				B68865441DF1181000904CC9 /* CreditsViewController.swift */,
 				B68865461DF12E3700904CC9 /* WelcomeViewController.swift */,
+				B68865561DF1CE5500904CC9 /* images */,
 			);
 			path = OverTap;
 			sourceTree = "<group>";
@@ -165,6 +166,19 @@
 				B65DC62F1DE54005001A4095 /* Info.plist */,
 			);
 			path = OverTapUITests;
+			sourceTree = "<group>";
+		};
+		B68865561DF1CE5500904CC9 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				B66485C21DEF2201009601B1 /* back.jpg */,
+				B6295E621DEF8951004039D6 /* shapes.png */,
+				B68865481DF1374600904CC9 /* delete.jpg */,
+				B688654A1DF1378F00904CC9 /* credits.png */,
+				B68865501DF1BE2800904CC9 /* intro1.png */,
+				B68865511DF1BE2800904CC9 /* intro2.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -280,7 +294,9 @@
 			files = (
 				B6295E631DEF8951004039D6 /* shapes.png in Resources */,
 				B66485C31DEF2201009601B1 /* back.jpg in Resources */,
+				B68865521DF1BE2800904CC9 /* intro1.png in Resources */,
 				B68865491DF1374600904CC9 /* delete.jpg in Resources */,
+				B68865531DF1BE2800904CC9 /* intro2.png in Resources */,
 				B65DC6181DE54005001A4095 /* LaunchScreen.storyboard in Resources */,
 				B65DC6151DE54005001A4095 /* Assets.xcassets in Resources */,
 				B688654B1DF1378F00904CC9 /* credits.png in Resources */,

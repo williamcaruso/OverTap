@@ -22,38 +22,113 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome to OverTap!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-yC-HMn">
-                                <rect key="frame" x="16" y="84" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to OverTap!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ya-yC-HMn">
+                                <rect key="frame" x="16" y="28" width="343" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="WyB-6f-TXt"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="32"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OverTap is a game of two rectangles." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46h-pM-Vu6">
-                                <rect key="frame" x="16" y="190" width="343" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-Ro-gNZ">
-                                <rect key="frame" x="168" y="350" width="39" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7j-Ro-gNZ">
+                                <rect key="frame" x="16" y="607" width="343" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="3Cw-WY-XqZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="28"/>
                                 <state key="normal" title="Begin"/>
                                 <connections>
                                     <action selector="BeginButton:" destination="6JL-5n-eeh" eventType="touchUpInside" id="wDk-Dj-gas"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="46h-pM-Vu6">
+                                <rect key="frame" x="16" y="87" width="343" height="141"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="141" id="NeB-TC-VlN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nAH-DE-yrB">
+                                <rect key="frame" x="123" y="269" width="128" height="128"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="2qf-zb-PaH" appends="YES" id="Cys-TI-evI"/>
+                                    <outletCollection property="gestureRecognizers" destination="6rl-xs-pRi" appends="YES" id="B0V-VH-GRR"/>
+                                    <outletCollection property="gestureRecognizers" destination="Q8j-nE-mC8" appends="YES" id="3zq-Ca-JD7"/>
+                                </connections>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Excellent!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xq3-8J-zpr">
+                                <rect key="frame" x="0.0" y="536" width="375" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="diu-tn-scA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="26"/>
+                                <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by William Caruso" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qre-qn-YZ0">
+                                <rect key="frame" x="16" y="87" width="343" height="27.5"/>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Ya-yC-HMn" firstAttribute="leading" secondItem="qre-qn-YZ0" secondAttribute="leading" id="5Hw-Qw-Mmu"/>
+                            <constraint firstItem="Xq3-8J-zpr" firstAttribute="centerX" secondItem="C7j-Ro-gNZ" secondAttribute="centerX" id="98F-qP-Bm3"/>
+                            <constraint firstItem="2Ya-yC-HMn" firstAttribute="top" secondItem="VUY-II-vWF" secondAttribute="bottom" constant="8" symbolic="YES" id="BNJ-n0-peQ"/>
+                            <constraint firstItem="Xq3-8J-zpr" firstAttribute="leading" secondItem="d49-vE-PK3" secondAttribute="leading" id="GvR-1h-ioh"/>
+                            <constraint firstItem="qre-qn-YZ0" firstAttribute="top" secondItem="46h-pM-Vu6" secondAttribute="top" id="HZN-LK-F0K"/>
+                            <constraint firstItem="46h-pM-Vu6" firstAttribute="centerX" secondItem="nAH-DE-yrB" secondAttribute="centerX" id="NDk-jd-EJL"/>
+                            <constraint firstAttribute="trailing" secondItem="Xq3-8J-zpr" secondAttribute="trailing" id="P3M-bc-NRw"/>
+                            <constraint firstItem="46h-pM-Vu6" firstAttribute="trailing" secondItem="C7j-Ro-gNZ" secondAttribute="trailing" id="PCp-u1-19s"/>
+                            <constraint firstItem="46h-pM-Vu6" firstAttribute="leading" secondItem="qre-qn-YZ0" secondAttribute="leading" id="QQ1-i1-XGu"/>
+                            <constraint firstItem="S8C-bX-dzH" firstAttribute="top" secondItem="C7j-Ro-gNZ" secondAttribute="bottom" constant="8" symbolic="YES" id="Qc1-6U-sIq"/>
+                            <constraint firstItem="C7j-Ro-gNZ" firstAttribute="top" secondItem="Xq3-8J-zpr" secondAttribute="bottom" constant="19" id="VRn-1M-8p2"/>
+                            <constraint firstItem="qre-qn-YZ0" firstAttribute="trailing" secondItem="46h-pM-Vu6" secondAttribute="trailing" id="eFn-mu-ETP"/>
+                            <constraint firstItem="nAH-DE-yrB" firstAttribute="centerY" secondItem="d49-vE-PK3" secondAttribute="centerY" id="fha-OC-RlK"/>
+                            <constraint firstItem="nAH-DE-yrB" firstAttribute="top" secondItem="46h-pM-Vu6" secondAttribute="bottom" constant="41" id="mYQ-Ls-Jr7"/>
+                            <constraint firstItem="nAH-DE-yrB" firstAttribute="leading" secondItem="d49-vE-PK3" secondAttribute="leading" constant="123" id="qLl-My-Dyc"/>
+                            <constraint firstItem="2Ya-yC-HMn" firstAttribute="leading" secondItem="d49-vE-PK3" secondAttribute="leadingMargin" id="s3p-db-8eM"/>
+                            <constraint firstItem="46h-pM-Vu6" firstAttribute="top" secondItem="2Ya-yC-HMn" secondAttribute="bottom" constant="8" symbolic="YES" id="s4a-0g-nah"/>
+                            <constraint firstItem="46h-pM-Vu6" firstAttribute="leading" secondItem="C7j-Ro-gNZ" secondAttribute="leading" id="wiY-CZ-X2l"/>
+                            <constraint firstItem="2Ya-yC-HMn" firstAttribute="trailing" secondItem="qre-qn-YZ0" secondAttribute="trailing" id="y66-Iy-DGj"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="beginButton" destination="C7j-Ro-gNZ" id="tPj-b9-ELI"/>
+                        <outlet property="feedbackLabel" destination="Xq3-8J-zpr" id="bJg-wr-FKC"/>
+                        <outlet property="tutorialLabel" destination="46h-pM-Vu6" id="tMa-Wj-nl8"/>
+                        <outlet property="tutorialView" destination="nAH-DE-yrB" id="QhS-Wf-OjX"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="Begin" id="nN6-tB-Gpl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZGw-wI-F3G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="2qf-zb-PaH">
+                    <connections>
+                        <action selector="handlePanWithRecognizer:" destination="6JL-5n-eeh" id="DPN-lX-IYt"/>
+                        <outlet property="delegate" destination="6JL-5n-eeh" id="BgB-FH-BwJ"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pinchGestureRecognizer id="6rl-xs-pRi">
+                    <connections>
+                        <action selector="handlePinchWithRecognizer:" destination="6JL-5n-eeh" id="H0X-ch-RQw"/>
+                        <outlet property="delegate" destination="6JL-5n-eeh" id="6IX-6k-S4T"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="Q8j-nE-mC8">
+                    <connections>
+                        <action selector="handleRotateWithRecognizer:" destination="6JL-5n-eeh" id="nlL-6H-utk"/>
+                        <outlet property="delegate" destination="6JL-5n-eeh" id="MlG-H1-DZv"/>
+                    </connections>
+                </rotationGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-466" y="42"/>
+            <point key="canvasLocation" x="-466.5" y="41.5"/>
         </scene>
         <!--Shapes View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -191,23 +266,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OverTap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jal-zo-4ZK">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverTap" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jal-zo-4ZK">
                                 <rect key="frame" x="16" y="64" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="B0J-tr-c6R"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="27"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="OverTap was developed by William Caruso for the Siri Advanced Development Group Apple Inc." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXq-5z-rvS">
-                                <rect key="frame" x="16" y="116" width="343" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OverTap was developed by William Caruso for the Siri Advanced Development Group Apple Inc." lineBreakMode="wordWrap" numberOfLines="25" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WXq-5z-rvS">
+                                <rect key="frame" x="16" y="123" width="343" height="524"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-3l-005">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-3l-005">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="vOg-Nw-arI"/>
+                                </constraints>
                                 <items>
                                     <navigationItem title="Credits" id="WCy-Sf-Ao7">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="lBk-x8-dZt">
@@ -225,7 +303,22 @@
                             </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="9Qv-3l-005" firstAttribute="centerX" secondItem="jal-zo-4ZK" secondAttribute="centerX" id="0pT-CU-4Hx"/>
+                            <constraint firstAttribute="bottom" secondItem="WXq-5z-rvS" secondAttribute="bottom" constant="20" symbolic="YES" id="3PK-QH-LEs"/>
+                            <constraint firstItem="jal-zo-4ZK" firstAttribute="leading" secondItem="WXq-5z-rvS" secondAttribute="leading" id="6rU-tP-h57"/>
+                            <constraint firstAttribute="trailing" secondItem="9Qv-3l-005" secondAttribute="trailing" id="FYU-81-scp"/>
+                            <constraint firstItem="9Qv-3l-005" firstAttribute="top" secondItem="aCh-II-5BX" secondAttribute="bottom" id="Qq4-7f-KAi"/>
+                            <constraint firstItem="jal-zo-4ZK" firstAttribute="trailing" secondItem="WXq-5z-rvS" secondAttribute="trailing" id="YJP-wy-a89"/>
+                            <constraint firstItem="jal-zo-4ZK" firstAttribute="leading" secondItem="BLa-Hw-Omv" secondAttribute="leadingMargin" id="ajP-U7-0Jb"/>
+                            <constraint firstItem="WXq-5z-rvS" firstAttribute="top" secondItem="jal-zo-4ZK" secondAttribute="bottom" constant="8" symbolic="YES" id="f82-zQ-UYu"/>
+                            <constraint firstItem="9Qv-3l-005" firstAttribute="leading" secondItem="BLa-Hw-Omv" secondAttribute="leading" id="ixv-pk-9N6"/>
+                            <constraint firstItem="jal-zo-4ZK" firstAttribute="top" secondItem="9Qv-3l-005" secondAttribute="bottom" id="j19-AM-sqj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="creditsLabel" destination="WXq-5z-rvS" id="RuA-bi-OuH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KZF-cH-gfk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

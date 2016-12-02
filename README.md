@@ -28,7 +28,7 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 
 * The clipping (intersection of the shape) is drawn in a blend of the intersecting shapes colors
 * The 'Intersection' label appears on the top
-* Haptic feedback if provided to the user
+* Haptic feedback is provided to the user
 
 #### Color Change and Two Rectangles Intersecting
 

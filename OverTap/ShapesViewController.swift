@@ -24,6 +24,13 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
     
     let NUM_SHAPES = 6
     let VIEW_HASHES = ["view1view2", "view1view3", "view2view3"]
+    
+    let redColor = UIColor(colorLiteralRed: 0.733, green: 0.027, blue: 0.067, alpha: 1.00)
+    let orangeColor = UIColor(colorLiteralRed: 0.992, green: 0.553, blue: 0.180, alpha: 1.00)
+    let yellowColor = UIColor(colorLiteralRed: 0.843, green: 0.992, blue: 0.208, alpha: 1.00)
+    let greenColor = UIColor(colorLiteralRed: 0.061, green: 0.984, blue: 0.100, alpha: 1.00)
+    let blueColor = UIColor(colorLiteralRed: 0.141, green: 0.043, blue: 0.824, alpha: 1.00)
+    let purpleColor = UIColor(colorLiteralRed: 0.584, green: 0.145, blue: 0.984, alpha: 1.00)
 
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var view1: UIView!
@@ -62,9 +69,9 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         recognizer3.delegate = self
         view3.addGestureRecognizer(recognizer3)
         
-        drawShape(drawInView: view1, shapeId: 1, color: UIColor.red)
-        drawShape(drawInView: view2, shapeId: 1, color: UIColor.blue)
-        drawShape(drawInView: view3, shapeId: 1, color: UIColor.green)
+        drawShape(drawInView: view1, shapeId: 1, color: redColor)
+        drawShape(drawInView: view2, shapeId: 1, color: blueColor)
+        drawShape(drawInView: view3, shapeId: 1, color: greenColor)
         
         view3.isHidden = true
         
@@ -114,16 +121,18 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
             let shape = shapesInView[view]!
             
             switch shape.fillColor! {
-            case UIColor.red.cgColor:
-                shape.fillColor = UIColor.orange.cgColor
-            case UIColor.orange.cgColor:
-                shape.fillColor = UIColor.green.cgColor
-            case UIColor.green.cgColor:
-                shape.fillColor = UIColor.blue.cgColor
-            case UIColor.blue.cgColor:
-                shape.fillColor = UIColor.purple.cgColor
+            case redColor.cgColor:
+                shape.fillColor = orangeColor.cgColor
+            case orangeColor.cgColor:
+                shape.fillColor = yellowColor.cgColor
+            case yellowColor.cgColor:
+                shape.fillColor = greenColor.cgColor
+            case greenColor.cgColor:
+                shape.fillColor = blueColor.cgColor
+            case blueColor.cgColor:
+                shape.fillColor = purpleColor.cgColor
             default:
-                shape.fillColor = UIColor.red.cgColor
+                shape.fillColor = redColor.cgColor
             }
         }
         findIntersections()
@@ -170,6 +179,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         if let view = recognizer.view {
             view.transform = view.transform.rotated(by: recognizer.rotation)
             recognizer.rotation = 0
+            pointsInView[view] = getShapePoints(subview: view)
         }
         findIntersections()
     }
@@ -232,10 +242,10 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         case 4:     // Hexagon
             points = [CGPoint(x: o.x + width / 4.0,y: o.y),
                       CGPoint(x: o.x + 3 * width / 4.0,y: o.y),
-                      CGPoint(x: o.x + width,y: o.y + height / 2.0),
-                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + height),
-                      CGPoint(x: o.x + width / 4.0,y: o.y + height),
-                      CGPoint(x: o.x,y: o.y + height / 2.0)]
+                      CGPoint(x: o.x + width,y: o.y + 7 * height / 16.0),
+                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + 7 * height / 8.0),
+                      CGPoint(x: o.x + width / 4.0,y: o.y + 7 * height / 8.0),
+                      CGPoint(x: o.x,y: o.y + 7 * height / 16.0)]
         case 5:     // Octagon
             points = [CGPoint(x: o.x +  width / 3.0,y: o.y),
                       CGPoint(x: o.x + 2 * width / 3.0,y: o.y),
@@ -298,14 +308,13 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
      - return The transformed point.
      */
     func rotatePoint(target: CGPoint, origin: CGPoint, byRadians: CGFloat) -> CGPoint {
-        print("ORIGIN ROTATION \(origin)")
-        let dx = target.x - origin.x
-        let dy = target.y - origin.y
+        let dx = origin.x - target.x
+        let dy = origin.y - target.y
         let radius = sqrt(dx * dx + dy * dy)
         let alpha = atan2(dy, dx) // in radians
         let newAlpha = alpha + byRadians
-        let x = origin.x + radius * cos(newAlpha)
-        let y = origin.y + radius * sin(newAlpha)
+        let x = origin.x - radius * cos(newAlpha)
+        let y = origin.y - radius * sin(newAlpha)
         
         return CGPoint(x: x, y: y)
     }
@@ -326,20 +335,19 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         let refPoint = CGPoint(x: origin.x + (subview.frame.width / 2.0),y: origin.y + (subview.frame.height / 2.0))
         
         for point in points {
-            // check if view has been rotated
             transPoint = CGPoint(x: point.x + origin.x, y: point.y + origin.y)
             
             if (subview.transform.b != 0) { // rotation
                 let radians = CGFloat(atan2f(Float(subview.transform.b), Float(subview.transform.a)))
                 let rotatedPoint = rotatePoint(target: transPoint, origin: refPoint, byRadians: radians)
                 transPoints.append(rotatedPoint)
-            } else { // no scaling or rotation
+            } else {
                 transPoints.append(transPoint)
             }
         }
         
-        print("Points in View: \(points)")
-        print("Transformed Point: \(transPoints)")
+//        print("Points in View: \(points)")
+//        print("Transformed Point: \(transPoints)")
         
         return transPoints
     }
@@ -409,16 +417,16 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         let points1 = transformPointsToSuperview(subview: viewA)
         let points2 = transformPointsToSuperview(subview: viewB)
         
-        print("Points 1 with scale \(viewA.transform.a) and rotation \(viewA.transform.b): \(points1)")
+//        print("Points 1 with scale \(viewA.transform.a) and rotation \(viewA.transform.b): \(points1)")
         
         let intersection = Clipper.intersectPolygons([points2], withPolygons: [points1])
         
-        print("Intersection \(hash): \(intersection)")
+//        print("Intersection \(hash): \(intersection)")
         
         // draw the intersection
         let shape = CAShapeLayer()
         view.layer.addSublayer(shape)
-        shape.opacity = 0.5
+        shape.opacity = 1
         shape.lineWidth = 2
         shape.lineJoin = kCALineJoinMiter
         shape.strokeColor = UIColor.white.cgColor
@@ -489,7 +497,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         
         let octagonAction = UIAlertAction(title: "Octagon", style: .default, handler: {
             (alert: UIAlertAction!) -> Void in
-            self.changeShape(subview: subview, newShape: 4)
+            self.changeShape(subview: subview, newShape: 5)
         })
         
         let dismissAction = UIAlertAction(title: "Dismiss", style: .default, handler: {
