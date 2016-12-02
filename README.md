@@ -32,19 +32,19 @@ When two (or more) shapes intersect the user is alerted in 3 ways:
 
 #### Color Change and Two Rectangles Intersecting
 
-![](https://github.com/williamcaruso/OverTap/tree/master/demos/demo1.gif)
+![](http://github.com/williamcaruso/OverTap/tree/master/demos/demo1.gif)
 
 #### Resizing Rectangles
 
-![](https://github.com/williamcaruso/OverTap/tree/master/demos/demo2.gif)
+![](http://github.com/williamcaruso/OverTap/tree/master/demos/demo2.gif)
 
 #### Adding a Third Rectangle
 
-![](https://github.com/williamcaruso/OverTap/tree/master/demos/demo3.gif)
+![](http://github.com/williamcaruso/OverTap/tree/master/demos/demo3.gif)
 
 #### Changing Shapes
 
-![](https://github.com/williamcaruso/OverTap/tree/master/demos/demo4.gif)
+![](http://github.com/williamcaruso/OverTap/tree/master/demos/demo4.gif)
 
 ### Credits
 
