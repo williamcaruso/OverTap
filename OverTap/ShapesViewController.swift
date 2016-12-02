@@ -19,7 +19,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
     var pointsInView = [UIView: Array<CGPoint>]()
     var shapesInView = [UIView: CAShapeLayer]()
     var shapeIdInView = [UIView: Int]()
-    var rotationsInView = [UIView: CGFloat]()
+
     var VIEW_IDS = [UIView: String]()
     
     let NUM_SHAPES = 6
@@ -37,7 +37,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
+//        self.view.backgroundColor = UIColor(patternImage: UIImage(named:"back.jpg")!)
         headerLabel.isHidden = true
         
         view1.backgroundColor = UIColor.clear
@@ -79,7 +79,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
             self.findIntersections()
             fab.close()
         })
-        fab.addItem(title: "Add Third Shape", handler: { item in
+        fab.addItem("Add Third Shape", icon: UIImage(named: "shapes.png")!, handler: { item in
             self.view3.isHidden = false
             self.findIntersections()
             fab.close()
@@ -207,9 +207,6 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         let o = CGPoint(x: 0, y: 0)
         let height = subview.frame.height
         let width = subview.frame.width
-        let id = VIEW_IDS[subview]
-        print("das nil \(subview)")
-        print("Shape \(shapeIdInView) with subview: \(id)")
         
         switch shapeIdInView[subview]! {
         case 0:     //Triangle
@@ -300,7 +297,8 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
      
      - return The transformed point.
      */
-    func rotatePoint(target: CGPoint, aroundOrigin origin: CGPoint, byRadians: CGFloat) -> CGPoint {
+    func rotatePoint(target: CGPoint, origin: CGPoint, byRadians: CGFloat) -> CGPoint {
+        print("ORIGIN ROTATION \(origin)")
         let dx = target.x - origin.x
         let dy = target.y - origin.y
         let radius = sqrt(dx * dx + dy * dy)
@@ -324,7 +322,6 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         let points = pointsInView[subview]!
         var transPoints = Array<CGPoint>()
         let origin = subview.frame.origin
-        print("------------------------ORIGIN: \(origin)")
         var transPoint = CGPoint()
         let refPoint = CGPoint(x: origin.x + (subview.frame.width / 2.0),y: origin.y + (subview.frame.height / 2.0))
         
@@ -334,7 +331,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
             
             if (subview.transform.b != 0) { // rotation
                 let radians = CGFloat(atan2f(Float(subview.transform.b), Float(subview.transform.a)))
-                let rotatedPoint = rotatePoint(target: transPoint, aroundOrigin: refPoint, byRadians: radians)
+                let rotatedPoint = rotatePoint(target: transPoint, origin: refPoint, byRadians: radians)
                 transPoints.append(rotatedPoint)
             } else { // no scaling or rotation
                 transPoints.append(transPoint)

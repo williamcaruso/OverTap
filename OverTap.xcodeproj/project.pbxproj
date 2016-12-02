@@ -18,6 +18,7 @@
 		B65DC63E1DE5414F001A4095 /* ShapesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC63D1DE5414F001A4095 /* ShapesViewController.swift */; };
 		B66485C31DEF2201009601B1 /* back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B66485C21DEF2201009601B1 /* back.jpg */; };
 		B68865451DF1181000904CC9 /* CreditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68865441DF1181000904CC9 /* CreditsViewController.swift */; };
+		B68865471DF12E3700904CC9 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68865461DF12E3700904CC9 /* WelcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		B65DC63D1DE5414F001A4095 /* ShapesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapesViewController.swift; sourceTree = "<group>"; };
 		B66485C21DEF2201009601B1 /* back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = back.jpg; sourceTree = "<group>"; };
 		B68865441DF1181000904CC9 /* CreditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditsViewController.swift; sourceTree = "<group>"; };
+		B68865461DF12E3700904CC9 /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 				B6295E621DEF8951004039D6 /* shapes.png */,
 				B65DC63D1DE5414F001A4095 /* ShapesViewController.swift */,
 				B68865441DF1181000904CC9 /* CreditsViewController.swift */,
+				B68865461DF12E3700904CC9 /* WelcomeViewController.swift */,
 			);
 			path = OverTap;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B65DC63E1DE5414F001A4095 /* ShapesViewController.swift in Sources */,
+				B68865471DF12E3700904CC9 /* WelcomeViewController.swift in Sources */,
 				B68865451DF1181000904CC9 /* CreditsViewController.swift in Sources */,
 				B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */,
 			);
