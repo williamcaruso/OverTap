@@ -245,12 +245,12 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
                       CGPoint(x: o.x + width / 5.0,y: o.y + height),
                       CGPoint(x: o.x,y: o.y + 2.0 * height / 5.0)]
         case 4:     // Hexagon
-            points = [CGPoint(x: o.x + width / 4.0,y: o.y),
-                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y),
-                      CGPoint(x: o.x + width,y: o.y + 7 * height / 16.0),
-                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + 7 * height / 8.0),
-                      CGPoint(x: o.x + width / 4.0,y: o.y + 7 * height / 8.0),
-                      CGPoint(x: o.x,y: o.y + 7 * height / 16.0)]
+            points = [CGPoint(x: o.x + width / 4.0,y: o.y + height / 16.0),
+                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + height / 16.0),
+                      CGPoint(x: o.x + width,y: o.y + 8 * height / 16.0),
+                      CGPoint(x: o.x + 3 * width / 4.0,y: o.y + 15 * height / 16.0),
+                      CGPoint(x: o.x + width / 4.0,y: o.y + 15 * height / 16.0),
+                      CGPoint(x: o.x,y: o.y + 8 * height / 16.0)]
         case 5:     // Octagon
             points = [CGPoint(x: o.x +  width / 3.0,y: o.y),
                       CGPoint(x: o.x + 2 * width / 3.0,y: o.y),
