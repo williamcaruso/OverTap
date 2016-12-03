@@ -14,7 +14,7 @@ class WelcomeViewController: UIViewController, UIGestureRecognizerDelegate {
     // MARK: - Variables
     let instruction1 = "Tap the shape to change its color"
     let instruction2 = "Move the shapes around with your finger"
-    let instruction3 = "Resize the shapes with a pinch"
+    let instruction3 = "Resize and rotate the shapes with a pinch"
     let instruction4 = "Press hard (3D-touch) on a shape to change it"
     let instruction5 = "That's the basics! Enjoy OverTap!"
     
