@@ -362,9 +362,10 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
     /**
      Blends two UIColors together
      
-     - parameter subview: The view whose points to transform.
+     - parameter color1: The first UIolor.
+     - parameter color2: The second UIolor.
      
-     - return The transformed points.
+     - return The blended UIColor.
      */
     func blendColor(color1: UIColor, withColor color2: UIColor) -> UIColor {
         var r1:CGFloat = 0, g1:CGFloat = 0, b1:CGFloat = 0, a1:CGFloat = 0
