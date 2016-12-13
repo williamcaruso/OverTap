@@ -5,7 +5,7 @@ OverTap is an app with two rectangles. See what happens when they overlap!
 
 ## Background
 
-OverTap was written as a coding challenge for Apple's Siri Advanced Development Team. The app was written in Swift 3.0.
+OverTap was written in Swift 3.0 with a touch of love and a tap of creativity..
 
 ## App Walkthrough
 

@@ -430,7 +430,7 @@ class ShapesViewController: UIViewController, UIGestureRecognizerDelegate {
         // draw the intersection
         let shape = CAShapeLayer()
         view.layer.addSublayer(shape)
-        shape.opacity = 1
+        shape.opacity = 0.6
         shape.lineWidth = 2
         shape.lineJoin = kCALineJoinMiter
         shape.strokeColor = UIColor.white.cgColor

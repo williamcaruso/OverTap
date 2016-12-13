@@ -38,7 +38,7 @@ class CreditsViewController: UIViewController {
         // Do any additional setup after loading the view.
         let bulletPoint: String = "\u{2022}"
 
-        let line1 = "OverTap was developed by William Caruso for the Siri Advanced Development Group at Apple Inc."
+        let line1 = "OverTap was developed by William Caruso.\n"
         let line2 = "\nWhen two shapes overlap the user is alerted in three ways:"
         let bullet1 = "\(bulletPoint) The clipping (intersection of the shapes) is drawn in a blend of the intersecting shapes colors"
         let bullet2 = "\(bulletPoint) The 'Intersection' label appears on the top"
