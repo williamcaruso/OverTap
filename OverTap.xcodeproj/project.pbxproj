@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0DFF1299222CC7BCFF310D30 /* Pods_OverTap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71204BA929441C6D0D2E0B71 /* Pods_OverTap.framework */; };
 		B6295E631DEF8951004039D6 /* shapes.png in Resources */ = {isa = PBXBuildFile; fileRef = B6295E621DEF8951004039D6 /* shapes.png */; };
 		B65DC60E1DE54005001A4095 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B65DC60D1DE54005001A4095 /* AppDelegate.swift */; };
 		B65DC6131DE54005001A4095 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B65DC6111DE54005001A4095 /* Main.storyboard */; };
@@ -43,8 +42,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		71204BA929441C6D0D2E0B71 /* Pods_OverTap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OverTap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		905EA417B3C31B9000FEF363 /* Pods-OverTap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.release.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.release.xcconfig"; sourceTree = "<group>"; };
 		B6295E621DEF8951004039D6 /* shapes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shapes.png; sourceTree = "<group>"; };
 		B65DC60A1DE54005001A4095 /* OverTap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OverTap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B65DC60D1DE54005001A4095 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -66,7 +63,6 @@
 		B688654A1DF1378F00904CC9 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
 		B68865501DF1BE2800904CC9 /* intro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro1.png; sourceTree = "<group>"; };
 		B68865511DF1BE2800904CC9 /* intro2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro2.png; sourceTree = "<group>"; };
-		DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OverTap.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OverTap/Pods-OverTap.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +70,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0DFF1299222CC7BCFF310D30 /* Pods_OverTap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,23 +90,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1EF72C6D26FAF4F78990627E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				71204BA929441C6D0D2E0B71 /* Pods_OverTap.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		27EB23F20699D2461F48A5C1 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */,
-				905EA417B3C31B9000FEF363 /* Pods-OverTap.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		B65DC6011DE54005001A4095 = {
 			isa = PBXGroup;
 			children = (
@@ -119,8 +97,6 @@
 				B65DC6211DE54005001A4095 /* OverTapTests */,
 				B65DC62C1DE54005001A4095 /* OverTapUITests */,
 				B65DC60B1DE54005001A4095 /* Products */,
-				27EB23F20699D2461F48A5C1 /* Pods */,
-				1EF72C6D26FAF4F78990627E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -188,12 +164,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B65DC6321DE54005001A4095 /* Build configuration list for PBXNativeTarget "OverTap" */;
 			buildPhases = (
-				D7453123E240CED498D6E771 /* [CP] Check Pods Manifest.lock */,
 				B65DC6061DE54005001A4095 /* Sources */,
 				B65DC6071DE54005001A4095 /* Frameworks */,
 				B65DC6081DE54005001A4095 /* Resources */,
-				7A9A940F97C953C989450C59 /* [CP] Embed Pods Frameworks */,
-				162E75A6E13963D4526EBE69 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -319,54 +292,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		162E75A6E13963D4526EBE69 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OverTap/Pods-OverTap-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A9A940F97C953C989450C59 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OverTap/Pods-OverTap-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7453123E240CED498D6E771 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B65DC6061DE54005001A4095 /* Sources */ = {
@@ -528,7 +453,6 @@
 		};
 		B65DC6331DE54005001A4095 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA333A333156ED7837171AF9 /* Pods-OverTap.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -544,7 +468,6 @@
 		};
 		B65DC6341DE54005001A4095 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 905EA417B3C31B9000FEF363 /* Pods-OverTap.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
