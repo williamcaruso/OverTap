@@ -100,7 +100,7 @@ class WelcomeViewController: UIViewController, UIGestureRecognizerDelegate {
     }
     
     func handleTap(_ recognizer:UITapGestureRecognizer) {
-        if let view = recognizer.view {
+        if recognizer.view != nil {
             switch shape.fillColor! {
             case redColor.cgColor:
                 shape.fillColor = orangeColor.cgColor

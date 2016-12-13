@@ -22,6 +22,8 @@
 		B688654B1DF1378F00904CC9 /* credits.png in Resources */ = {isa = PBXBuildFile; fileRef = B688654A1DF1378F00904CC9 /* credits.png */; };
 		B68865521DF1BE2800904CC9 /* intro1.png in Resources */ = {isa = PBXBuildFile; fileRef = B68865501DF1BE2800904CC9 /* intro1.png */; };
 		B68865531DF1BE2800904CC9 /* intro2.png in Resources */ = {isa = PBXBuildFile; fileRef = B68865511DF1BE2800904CC9 /* intro2.png */; };
+		B68C0A481E00B22200E6E4DB /* RSClipperWrapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68C0A451E00B21D00E6E4DB /* RSClipperWrapper.framework */; };
+		B68C0A5B1E00B39300E6E4DB /* KCFloatingActionButton.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B68C0A5A1E00B30A00E6E4DB /* KCFloatingActionButton.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = B65DC6091DE54005001A4095;
 			remoteInfo = OverTap;
+		};
+		B68C0A441E00B21D00E6E4DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B68C0A3F1E00B21D00E6E4DB /* RSClipperWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 613DF0961B74CFD80003F595;
+			remoteInfo = RSClipperWrapper;
+		};
+		B68C0A461E00B21D00E6E4DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B68C0A3F1E00B21D00E6E4DB /* RSClipperWrapper.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 613DF0A01B74CFD80003F595;
+			remoteInfo = RSClipperWrapperTests;
+		};
+		B68C0A591E00B30A00E6E4DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B68C0A551E00B30A00E6E4DB /* KCFloatingActionButton.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = B65A2E531D5975130045483D;
+			remoteInfo = KCFloatingActionButton;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -63,6 +86,8 @@
 		B688654A1DF1378F00904CC9 /* credits.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = credits.png; sourceTree = "<group>"; };
 		B68865501DF1BE2800904CC9 /* intro1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro1.png; sourceTree = "<group>"; };
 		B68865511DF1BE2800904CC9 /* intro2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = intro2.png; sourceTree = "<group>"; };
+		B68C0A3F1E00B21D00E6E4DB /* RSClipperWrapper.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RSClipperWrapper.xcodeproj; path = "../../../Downloads/RSClipperWrapper-master/RSClipperWrapper/RSClipperWrapper.xcodeproj"; sourceTree = "<group>"; };
+		B68C0A551E00B30A00E6E4DB /* KCFloatingActionButton.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = KCFloatingActionButton.xcodeproj; path = "../../../Downloads/KCFloatingActionButton-master 3/KCFloatingActionButton.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B68C0A5B1E00B39300E6E4DB /* KCFloatingActionButton.framework in Frameworks */,
+				B68C0A481E00B22200E6E4DB /* RSClipperWrapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +120,8 @@
 		B65DC6011DE54005001A4095 = {
 			isa = PBXGroup;
 			children = (
+				B68C0A551E00B30A00E6E4DB /* KCFloatingActionButton.xcodeproj */,
+				B68C0A3F1E00B21D00E6E4DB /* RSClipperWrapper.xcodeproj */,
 				B65DC60C1DE54005001A4095 /* OverTap */,
 				B65DC6211DE54005001A4095 /* OverTapTests */,
 				B65DC62C1DE54005001A4095 /* OverTapUITests */,
@@ -155,6 +184,23 @@
 				B68865511DF1BE2800904CC9 /* intro2.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		B68C0A401E00B21D00E6E4DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B68C0A451E00B21D00E6E4DB /* RSClipperWrapper.framework */,
+				B68C0A471E00B21D00E6E4DB /* RSClipperWrapperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B68C0A561E00B30A00E6E4DB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B68C0A5A1E00B30A00E6E4DB /* KCFloatingActionButton.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +297,16 @@
 			mainGroup = B65DC6011DE54005001A4095;
 			productRefGroup = B65DC60B1DE54005001A4095 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = B68C0A561E00B30A00E6E4DB /* Products */;
+					ProjectRef = B68C0A551E00B30A00E6E4DB /* KCFloatingActionButton.xcodeproj */;
+				},
+				{
+					ProductGroup = B68C0A401E00B21D00E6E4DB /* Products */;
+					ProjectRef = B68C0A3F1E00B21D00E6E4DB /* RSClipperWrapper.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				B65DC6091DE54005001A4095 /* OverTap */,
@@ -259,6 +315,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		B68C0A451E00B21D00E6E4DB /* RSClipperWrapper.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RSClipperWrapper.framework;
+			remoteRef = B68C0A441E00B21D00E6E4DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B68C0A471E00B21D00E6E4DB /* RSClipperWrapperTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RSClipperWrapperTests.xctest;
+			remoteRef = B68C0A461E00B21D00E6E4DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B68C0A5A1E00B30A00E6E4DB /* KCFloatingActionButton.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = KCFloatingActionButton.framework;
+			remoteRef = B68C0A591E00B30A00E6E4DB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B65DC6081DE54005001A4095 /* Resources */ = {
@@ -463,6 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.OverTap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "../**";
 			};
 			name = Debug;
 		};
@@ -478,6 +559,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.wcaruso.OverTap;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				USER_HEADER_SEARCH_PATHS = "../**";
 			};
 			name = Release;
 		};
